@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/map"
+        android:id="@+id/ble"
         android:icon="@drawable/ic_action_location"
-        android:title="Map" />
+        android:title="Bluetooth" />
 
     <item
-        android:id="@+id/ble"
+        android:id="@+id/map"
         android:icon="@drawable/ic_action_bluetooth"
-        android:title="Bluetooth" />
+        android:title="Map" />
 
 </menu>
