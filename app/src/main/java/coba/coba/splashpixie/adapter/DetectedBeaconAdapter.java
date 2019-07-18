@@ -14,70 +14,36 @@ import android.widget.TextView;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import coba.coba.splashpixie.R;
 import coba.coba.splashpixie.model.Bookshelf;
+import coba.coba.splashpixie.model.DetectedBeacon;
 
-public class BookshelfAdapter extends ListAdapter<Bookshelf, BookshelfAdapter.BookViewHolder>{
+public class DetectedBeaconAdapter extends ListAdapter<DetectedBeacon, DetectedBeaconAdapter.BookViewHolder>{
 
     private static final int VIEW_TYPE_HEADER = 358;
     private static final int VIEW_TYPE_BOOKSHELF = 360;
 
-    static DiffUtil.ItemCallback<Bookshelf> itemCallback = new DiffUtil.ItemCallback<Bookshelf>() {
+    static DiffUtil.ItemCallback<DetectedBeacon> itemCallback = new DiffUtil.ItemCallback<DetectedBeacon>() {
         @Override
-        public boolean areItemsTheSame(@NonNull Bookshelf book, @NonNull Bookshelf t1) {
-            return book.code.equals(t1.code);
+        public boolean areItemsTheSame(@NonNull DetectedBeacon detectedBeacon, @NonNull DetectedBeacon t1) {
+            return detectedBeacon.minor == t1.minor;
         }
+
         @Override
-        public boolean areContentsTheSame(@NonNull Bookshelf book, @NonNull Bookshelf t1) {
-            return true;
+        public boolean areContentsTheSame(@NonNull DetectedBeacon detectedBeacon, @NonNull DetectedBeacon t1) {
+            return detectedBeacon.rssi == t1.rssi;
         }
     };
 
     private Context mContext;
     private OnItemClickListener onItemClickListener;
 
-    public BookshelfAdapter(Context context) {
+    public DetectedBeaconAdapter(Context context) {
         super(itemCallback);
         mContext = context;
-
-        ArrayList<Bookshelf> bookshelfList = new ArrayList();
-//        bookshelfList.add(new Bookshelf("Ilmu Pengetahuan Umum, Ilmu Komputer", "1"));
-//        bookshelfList.add(new Bookshelf("Program Komputer, Pemrograman Sistem ", "3"));
-//        bookshelfList.add(new Bookshelf("Tax, Telecommunication ", "9A"));
-//        bookshelfList.add(new Bookshelf("Audit, Public Accounting", "14B"));
-//        bookshelfList.add(new Bookshelf("Managemen Project, Managemem Konflik, Managemen Produksi", "20"));
-        bookshelfList.add(
-                new Bookshelf(
-                        "Computer Graphic, Information Center, jurnalistik ",
-                        "5",
-                        new LatLng(-6.971999611527834,107.63278372585773),
-                        5
-                ));
-        bookshelfList.add(new Bookshelf(
-                    "Filosofi, Psikologi, Agama, Ilmu Sosial, Ekonomi Keuangan",
-                    "6A,6B",
-                     new LatLng(-6.971505074987399,107.63273108750582),
-                    10));
-
-        bookshelfList.add(new Bookshelf(
-                    "Signal Processing, Teknik Komputer ",
-                    "13",
-                    new LatLng(-6.9715663096882885,107.63247661292552),
-                    7));
-        bookshelfList.add(new Bookshelf(
-                    "Managemen, Managemen Keuangan",
-                    "17A",
-                    new LatLng(-6.971828886657326, 107.63263184577228),
-                    3));
-        bookshelfList.add(new Bookshelf(
-                    "Managemen Pemasaran, Penelitian Pemasaran, Pemasaran",
-                    "22",
-                    new LatLng(-6.971694103820868,107.63284642249347),
-                    4));
-
-        submitList(bookshelfList);
     }
 
     @Override
@@ -106,8 +72,8 @@ public class BookshelfAdapter extends ListAdapter<Bookshelf, BookshelfAdapter.Bo
     @Override
     public void onBindViewHolder(@NonNull BookViewHolder bookViewHolder, int i) {
         if (bookViewHolder.viewType == VIEW_TYPE_BOOKSHELF) {
-            final Bookshelf book = getItem(i-2);
-
+            DetectedBeacon beacon = getItem(i-2);
+            final Bookshelf book = beacon.bookshelf;
             bookViewHolder.nameText.setText(book.name);
             bookViewHolder.codeText.setText(book.code);
             bookViewHolder.root.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +94,7 @@ public class BookshelfAdapter extends ListAdapter<Bookshelf, BookshelfAdapter.Bo
     }
 
     @Override
-    public void submitList(@Nullable List<Bookshelf> list) {
+    public void submitList(@Nullable List<DetectedBeacon> list) {
         super.submitList(list);
     }
 

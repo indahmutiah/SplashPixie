@@ -12,12 +12,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.LocationSource;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
@@ -67,37 +62,16 @@ public class HomeActivity extends AppCompatActivity implements BeaconConsumer, L
         mBeaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout(LAYOUT_IBEACON));
         mBeaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout(BeaconParser.ALTBEACON_LAYOUT));
         mBeaconManager.bind(this);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_nav);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         toolbar.setTitle("Map");
-//        getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.container, mapFragment)
-//                .commit();
-//
-        navigation.setSelectedItemId(R.id.map);
-//        AndroidLocationProvider.initialize(this);
-//        BluetoothClient.initialize(this);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, mapFragment)
+                .commit();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        // observe location
-//        if (!AndroidLocationProvider.hasLocationPermission(this)) {
-//            AndroidLocationProvider.requestLocationPermission(this);
-//        } else if (!AndroidLocationProvider.isLocationEnabled(this)) {
-//            requestLocationServices();
-//            AndroidLocationProvider.requestLocationEnabling(this);
-//        }
-//        AndroidLocationProvider.startRequestingLocationUpdates();
-//        AndroidLocationProvider.requestLastKnownLocation();
-//
-//        if (!BluetoothClient.isBluetoothEnabled()) {
-//            BluetoothClient.requestBluetoothEnabling(this);
-//        }
-//        BluetoothClient.startScanning();
     }
 
     @Override

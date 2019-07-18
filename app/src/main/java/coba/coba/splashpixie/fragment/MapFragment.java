@@ -63,38 +63,6 @@ public class MapFragment extends Fragment implements
 
     private boolean isSubmitted = false;
 
-//    @Override
-//    protected LocationListener createDeviceLocationListener() {
-//        return new LocationListener() {
-//            @Override
-//            public void onLocationUpdated(LocationProvider locationProvider, Location location) {
-//                if (locationProvider instanceof IndoorPositioning) {
-//                    updateLocation(IndoorPositioning.getLocationPredictor().getLocation());
-//                }
-//            }
-//        };
-//    }
-//
-//    @Override
-//    protected BeaconUpdateListener createBeaconUpdateListener() {
-//        return new BeaconUpdateListener() {
-//            @Override
-//            public void onBeaconUpdated(Beacon beacon) {
-//                Log.i("BeaconUpdate", beacon.toString());
-//            }
-//        };
-//    }
-
-//    private void updateLocation(Location location) {
-//
-//    }
-//
-//    @Override
-//    protected int getLayoutResourceId() {
-//        return R.layout.fragment_map;
-//    }
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -115,7 +83,7 @@ public class MapFragment extends Fragment implements
         super.onViewCreated(view, savedInstanceState);
         mMapView = view.findViewById(R.id.mapview);
         mMapView.onCreate(savedInstanceState);
-        RecyclerView listBookself = view.findViewById(R.id.listBookshelf);
+        RecyclerView listBookself = view.findViewById(R.id.recyclerView);
         listBookself.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         mAdapter = new BookshelfAdapter(getContext());
         mBottomSheet = BottomSheetBehavior.from(view.findViewById(R.id.bottom_sheet));
@@ -205,46 +173,37 @@ public class MapFragment extends Fragment implements
         } catch (SecurityException ex) {
 
         }
-
     }
 
-    private void buildGoogleApiClient() {
-    }
 
     @Override
     public void onMapClick(LatLng latLng) {
-        mGoogleMap.addMarker(new MarkerOptions().position(latLng));
-        Log.d("OnMapClick", latLng.toString());
+//        mGoogleMap.addMarker(new MarkerOptions().position(latLng));
+//        Log.d("OnMapClick", latLng.toString());
     }
 
-    public void updateLocation(LatLng latLng) {
-
-    }
 
     @Override
     public void onDetectedBeacon(List<SavedBeacon> beaconList) {
-        if (!isMapReady) return;
-        for (int i = 0; i<beaconList.size(); i++) {
-            SavedBeacon savedBeacon = beaconList.get(i);
-            LatLng latLng = new LatLng(
-                    savedBeacon.getLocation().getLatitude(),
-                    savedBeacon.getLocation().getLongitude()
-            );
 
-            Beacon beacon = savedBeacon.getBeacon();
-            if (beacon.getRssi()>-75) {
-                MarkerOptions options = new MarkerOptions().position(latLng).title(String.valueOf(bookshelfList));
-                Marker marker = mGoogleMap.addMarker(options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-                marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-            }
-            else{
-                mMarker.remove();
-//                MarkerOptions options = new MarkerOptions().position(latLng);
-//                Marker marker = mGoogleMap.addMarker(options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-//                marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+//        if (!isMapReady) return;
+//        for (int i = 0; i<beaconList.size(); i++) {
+//            SavedBeacon savedBeacon = beaconList.get(i);
+//            LatLng latLng = new LatLng(
+//                    savedBeacon.getLocation().getLatitude(),
+//                    savedBeacon.getLocation().getLongitude()
+//            );
 //
-            }
-        }
+//            Beacon beacon = savedBeacon.getBeacon();
+//            if (beacon.getRssi()>-75) {
+//                MarkerOptions options = new MarkerOptions().position(latLng).title(String.valueOf(bookshelfList));
+//                Marker marker = mGoogleMap.addMarker(options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+//                marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+//            }
+//            else{
+//                mMarker.remove();
+//            }
+//        }
     }
 
 
@@ -252,17 +211,4 @@ public class MapFragment extends Fragment implements
     public void onItemClick(Bookshelf bookshelf) {
         Toast.makeText(requireContext(), bookshelf.name, Toast.LENGTH_SHORT).show();
     }
-//
-//    double[][] positions = new double[][] { { 1.2, -10.0 }, {-4.5, -7.0 }, { 6.0, -6.5 }, { 5.0, -1.0 }, {-3.5, 1.0}, {6.0,6.0} };
-//    double[] distances = new double[] { 8.06, 13.97, 23.32, 15.31 };
-//
-//    NonLinearLeastSquaresSolver solver = new NonLinearLeastSquaresSolver(new TrilaterationFunction(positions, distances), new LevenbergMarquardtOptimizer());
-//    LeastSquaresOptimizer.Optimum optimum = solver.solve();
-//
-//    // the answer
-//    double[] centroid = optimum.getPoint().toArray();
-//
-//    // error and geometry information; may throw SingularMatrixException depending the threshold argument provided
-//    RealVector standardDeviation = optimum.getSigma(0);
-//    RealMatrix covarianceMatrix = optimum.getCovariances(0);
 }

@@ -108,43 +108,43 @@ public class ScanningFragment extends Fragment implements HomeActivity.OnDetecte
         }
     }
 
-
-////    ScanCallback scanCallback = new ScanCallback() {
-////        @Override
-////        public void onScanResult(int callbackType, ScanResult result) {
-////            super.onScanResult(callbackType, result);
-////            ArrayList<Device> listName = new ArrayList<>();
-////            Device device = new Device();
-////            device.name = result.getDevice().getName();
-////            device.mac_add = result.getDevice().getAddress();
-////            device.rssi = result.getRssi();
-////
-////
-////
-////            listName.add(device);
-////
-////        }
-////
-////        @Override
-////        public void onBatchScanResults(List<ScanResult> results) {
-////            super.onBatchScanResults(results);
-////
-////            for (int i = 0; i< results.size(); i++) {
-////                ScanResult result = results.get(i);
-////                Device device = new Device();
-////
-////                device.name = result.getScanRecord().getDeviceName();
-////                device.mac_add = result.getDevice().getAddress();
-////                device.rssi = result.getRssi();
-////
-//////                listName.add(device);
-////                mapDevice.put(device.mac_add, device);
-////            }
-////
-////
-////            ArrayList<Device> list = new ArrayList(mapDevice.values());
-//////            mDeviceAdapter.submitList(list);
-////        }
+//
+//    ScanCallback scanCallback = new ScanCallback() {
+//        @Override
+//        public void onScanResult(int callbackType, ScanResult result) {
+//            super.onScanResult(callbackType, result);
+//            ArrayList<Device> listName = new ArrayList<>();
+//            Device device = new Device();
+//            device.name = result.getDevice().getName();
+//            device.mac_add = result.getDevice().getAddress();
+//            device.rssi = result.getRssi();
+//
+//
+//
+//            listName.add(device);
+//
+//        }
+//
+//        @Override
+//        public void onBatchScanResults(List<ScanResult> results) {
+//            super.onBatchScanResults(results);
+//
+//            for (int i = 0; i< results.size(); i++) {
+//                ScanResult result = results.get(i);
+//                Device device = new Device();
+//
+//                device.name = result.getScanRecord().getDeviceName();
+//                device.mac_add = result.getDevice().getAddress();
+//                device.rssi = result.getRssi();
+//
+////                listName.add(device);
+//                mapDevice.put(device.mac_add, device);
+//            }
+//
+//
+//            ArrayList<Device> list = new ArrayList(mapDevice.values());
+////            mDeviceAdapter.submitList(list);
+//        }
 //
 //        @Override
 //        public void onScanFailed(int errorCode) {
