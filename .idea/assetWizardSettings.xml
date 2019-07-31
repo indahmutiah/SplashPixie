@@ -18,11 +18,23 @@
                                 <PersistentState>
                                   <option name="children">
                                     <map>
+                                      <entry key="clipArt">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                       <entry key="image">
                                         <value>
                                           <PersistentState>
                                             <option name="values">
                                               <map>
+                                                <entry key="paddingPercent" value="5" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -34,10 +46,10 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="D:\IMPORTANT\PROYEK AKHIR\Desain Pixie\Group 3.png" />
-                                      <entry key="outputName" value="ic_btm_sheet" />
+                                      <entry key="imageAsset" value="D:\IMPORTANT\PROYEK AKHIR\Desain Pixie\point1.png" />
+                                      <entry key="outputName" value="point" />
                                       <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="90191c" />
+                                      <entry key="themeColor" value="dbbf2c" />
                                     </map>
                                   </option>
                                 </PersistentState>
