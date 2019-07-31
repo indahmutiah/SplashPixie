@@ -160,7 +160,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener
         BookshelfRepository.bookshelfList.forEach {
             val options = MarkerOptions()
             options.position(LatLng(it.latLng.latitude, it.latLng.longitude))
-            options.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker))
+            options.icon(BitmapDescriptorFactory.fromResource(R.drawable.point))
             val marker = mGoogleMap?.addMarker(options)
             if (marker != null) markers[it.minor] = marker
         }
@@ -274,14 +274,8 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener
         }
 
         fun getDistance(rssi: Int): Double {
-            /*
-             * RSSI = TxPower - 10 * n * lg(d)
-             * n = Pathloss Exponen
-             *
-             * d = 10 ^ ((TxPower - RSSI) / (10 * n))
-             */
-//        return Math.pow(10.0, (txPower.toDouble() - rssi) / (10 * 4))
-            return if (rssi >= -61) 1.0
+
+            return if (rssi >= -65) 1.0
             else if (rssi >= -73) 2.0
             else if (rssi >= -75) 3.0
             else if(rssi >= -80) 4.0

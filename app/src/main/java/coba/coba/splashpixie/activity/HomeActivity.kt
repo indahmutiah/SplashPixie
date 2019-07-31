@@ -123,9 +123,9 @@ class HomeActivity : AppCompatActivity(), BeaconConsumer, LocationSource {
             val uuid = beacon.id1.toString()
             if (uuid == "cde5deff-7027-76b9-fe46-1705529b7b41") {
                 if (beacon.id2.toInt() == 100) {
-                    if (beacon.rssi > -75) {
+//                    if (beacon.rssi > -100) {
                         newList.add(beacon)
-                    }
+//                    }
                 }
             }
         }
@@ -196,14 +196,14 @@ class HomeActivity : AppCompatActivity(), BeaconConsumer, LocationSource {
         //                onLocationChangedListener.onLocationChanged(location);
         //            }
         //        }
-        //        if (minor.equals("6")) {
-        //            location.setLatitude(-6.971632869136695);
-        //            location.setLongitude(107.6328967139125);
-        ////            mapFragment.updateLocation(new LatLng(-6.97165649773861, 107.63278003782034));
-        //            if (onLocationChangedListener != null) {
-        //                onLocationChangedListener.onLocationChanged(location);
-        //            }
-        //        }
+                if (minor.equals("6")) {
+                    location.setLatitude(-6.971632869136695);
+                    location.setLongitude(107.6328967139125);
+        //            mapFragment.updateLocation(new LatLng(-6.97165649773861, 107.63278003782034))
+                    if (onLocationChangedListener != null) {
+                        onLocationChangedListener!!.onLocationChanged(location)
+                    }
+                }
         if (minor == "4") {
             location.latitude = -6.971694103820868
             location.longitude = 107.63284642249347

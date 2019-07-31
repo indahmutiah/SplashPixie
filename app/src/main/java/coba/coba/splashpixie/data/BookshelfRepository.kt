@@ -35,7 +35,40 @@ object BookshelfRepository {
                     "Managemen Pemasaran, Penelitian Pemasaran, Pemasaran",
                     "22",
                     LatLng(-6.971694103820868, 107.63284642249347),
-                    4)
+                    4
+            ),
+            Bookshelf(
+                    "Managemen Project, Managemem Konflik, Managemen Produksi",
+                    "20",
+                    LatLng(-6.971632869136695,107.6328967139125),
+                    6
+            ),
+            Bookshelf(
+                    "Tax, Telecommunication",
+                    "9",
+                    LatLng(-6.971753341714249, 107.63253796845675),
+                    1
+            ),
+            Bookshelf(
+                    "Program Komputer, Pemrograman Sistem",
+                    "3",
+                    LatLng(-6.971612901303168, 107.63279747217895),
+                    2
+            ),
+            Bookshelf(
+                    "Ilmu Pengetahuan Umum, Ilmu Komputer ",
+                    "9",
+                    LatLng(-6.971840867352016,107.63282865285872),
+                    8
+
+            ),
+            Bookshelf(
+                    "Audit, Public Accounting",
+                    "14",
+                    LatLng(-6.971943368838568, 107.63283871114254),
+                    9
+            )
+
     )
     //        bookshelfList.add(new Bookshelf("Ilmu Pengetahuan Umum, Ilmu Komputer", "1"));
     //        bookshelfList.add(new Bookshelf("Program Komputer, Pemrograman Sistem ", "3"));

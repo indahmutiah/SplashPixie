@@ -88,13 +88,7 @@ class DetectedBeaconAdapter(private val mContext: Context) : RecyclerView.Adapte
     }
 
     fun getDistance(txPower: Int, rssi: Int): Double {
-        /*
-         * RSSI = TxPower - 10 * n * lg(d)
-         * n = Pathloss Exponen
-         *
-         * d = 10 ^ ((TxPower - RSSI) / (10 * n))
-         */
-//        return Math.pow(10.0, (txPower.toDouble() - rssi) / (10 * 4))
+
         return if (rssi >= -61) 1.0
         else if (rssi >= -73) 2.0
         else if (rssi >= -75) 3.0

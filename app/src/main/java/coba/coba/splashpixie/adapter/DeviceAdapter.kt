@@ -34,13 +34,13 @@ class DeviceAdapter(private val mContext: Context, itemCallback: DiffUtil.ItemCa
     }
 
     fun getDistance(txPower: Int, rssi: Int): Double {
-        /*
-         * RSSI = TxPower - 10 * n * lg(d)
-         * n = 2 (in free space)
-         *
-         * d = 10 ^ ((TxPower - RSSI) / (10 * n))
-         */
-        return Math.pow(10.0, (txPower.toDouble() - rssi) / (10 * 2))
+        return if (rssi >= -61) 1.0
+        else if (rssi >= -73) 2.0
+        else if (rssi >= -75) 3.0
+        else if(rssi >= -80) 4.0
+        else if(rssi >= -98) 5.0
+
+        else -1.0
     }
 
     public inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
