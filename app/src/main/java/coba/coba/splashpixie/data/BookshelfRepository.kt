@@ -50,30 +50,25 @@ object BookshelfRepository {
                     1
             ),
             Bookshelf(
-                    "Program Komputer, Pemrograman Sistem",
-                    "3",
-                    LatLng(-6.971612901303168, 107.63279747217895),
+                    "Audit, Public Accounting",
+                    "14",
+                    LatLng(-6.97150074862236,107.63260468840599 ),
                     2
             ),
             Bookshelf(
                     "Ilmu Pengetahuan Umum, Ilmu Komputer ",
-                    "9",
+                    "1",
                     LatLng(-6.971840867352016,107.63282865285872),
                     8
 
             ),
             Bookshelf(
-                    "Audit, Public Accounting",
-                    "14",
+                    "Program Komputer, Pemrograman Sistem",
+                    "3",
                     LatLng(-6.971943368838568, 107.63283871114254),
                     9
             )
 
     )
-    //        bookshelfList.add(new Bookshelf("Ilmu Pengetahuan Umum, Ilmu Komputer", "1"));
-    //        bookshelfList.add(new Bookshelf("Program Komputer, Pemrograman Sistem ", "3"));
-    //        bookshelfList.add(new Bookshelf("Tax, Telecommunication ", "9A"));
-    //        bookshelfList.add(new Bookshelf("Audit, Public Accounting", "14B"));
-    //        bookshelfList.add(new Bookshelf("Managemen Project, Managemem Konflik, Managemen Produksi", "20"));
 
 }

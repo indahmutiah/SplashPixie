@@ -198,7 +198,6 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener
 
         mAdapter?.submitList(lastDetectedBookshelf.values
                 .toList()
-                .filter { it.rssi > -75 }
                 .sortedByDescending { it.rssi })
 
         markers.forEach {
@@ -211,6 +210,7 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener
 
         lastDetectedBookshelf.values.toList()
                 .sortedByDescending { it.rssi }
+                .filter { it.rssi > -75 }
                 .let {
                     if (!it.isEmpty()) {
                         val nearest = it.first()
@@ -276,10 +276,16 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener
         fun getDistance(rssi: Int): Double {
 
             return if (rssi >= -65) 1.0
-            else if (rssi >= -73) 2.0
+            else if (rssi >= -72) 2.0
             else if (rssi >= -75) 3.0
-            else if(rssi >= -80) 4.0
-            else if(rssi >= -98) 5.0
+            else if(rssi >= -79) 4.0
+            else if(rssi >= -84) 5.0
+            else if(rssi >= -86) 6.0
+            else if (rssi >= -88) 7.0
+            else if(rssi >= - 91) 8.0
+            else if(rssi >= -95) 9.0
+            else if(rssi >= -98) 10.0
+
 
             else -1.0
         }

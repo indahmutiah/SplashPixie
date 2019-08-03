@@ -26,7 +26,7 @@ class HomeActivity : AppCompatActivity(), BeaconConsumer, LocationSource {
     internal var onDetectedBeaconsListener: OnDetectedBeaconsListener? = null
 
     private val mapFragment = MapFragment()
-    private val scanningFragment = ScanningFragment()
+//    private val scanningFragment = ScanningFragment()
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {

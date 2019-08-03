@@ -89,11 +89,16 @@ class DetectedBeaconAdapter(private val mContext: Context) : RecyclerView.Adapte
 
     fun getDistance(txPower: Int, rssi: Int): Double {
 
-        return if (rssi >= -61) 1.0
-        else if (rssi >= -73) 2.0
+        return if (rssi >= -65) 1.0
+        else if (rssi >= -72) 2.0
         else if (rssi >= -75) 3.0
-        else if(rssi >= -80) 4.0
-        else if(rssi >= -98) 5.0
+        else if(rssi >= -79) 4.0
+        else if(rssi >= -84) 5.0
+        else if(rssi >= -86) 6.0
+        else if (rssi >= -88) 7.0
+        else if(rssi >= - 91) 8.0
+        else if(rssi >= -95) 9.0
+        else if(rssi >= -98) 10.0
 
         else -1.0
     }
