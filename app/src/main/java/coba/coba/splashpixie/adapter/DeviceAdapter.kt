@@ -29,16 +29,21 @@ class DeviceAdapter(private val mContext: Context, itemCallback: DiffUtil.ItemCa
         viewHolder.rssi.text = beacon.beacon!!.rssi.toString()
         viewHolder.minor.text = beacon.beacon!!.id3.toString()
 
-        val distance = getDistance(-55, beacon.beacon!!.rssi)
+        val distance = getDistance(10, beacon.beacon!!.rssi)
         viewHolder.distance.text = distance.toString()
     }
 
     fun getDistance(txPower: Int, rssi: Int): Double {
-        return if (rssi >= -61) 1.0
-        else if (rssi >= -73) 2.0
+        return if (rssi >= -63) 1.0
+        else if (rssi >= -72) 2.0
         else if (rssi >= -75) 3.0
-        else if(rssi >= -80) 4.0
-        else if(rssi >= -98) 5.0
+        else if(rssi >= -79) 4.0
+        else if(rssi >= -83) 5.0
+        else if(rssi >= -86) 6.0
+        else if (rssi >= -88) 7.0
+        else if(rssi >= - 91) 8.0
+        else if(rssi >= -94) 9.0
+        else if(rssi >= -97) 10.0
 
         else -1.0
     }

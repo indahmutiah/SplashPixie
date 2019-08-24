@@ -26,8 +26,8 @@ object BookshelfRepository {
                     7
             ),
          Bookshelf(
-                    "Managemen, Managemen Keuangan",
-                    "17A",
+                    "Executive Management, Strategic Management",
+                    "19",
                     LatLng(-6.971505074987399, 107.63273108750582),
                     3
             ),

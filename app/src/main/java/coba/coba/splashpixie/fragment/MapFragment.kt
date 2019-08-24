@@ -196,9 +196,15 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener
             }
         }
 
-        mAdapter?.submitList(lastDetectedBookshelf.values
+        val listBeacons = lastDetectedBookshelf.values
                 .toList()
-                .sortedByDescending { it.rssi })
+                .sortedByDescending { it.rssi }
+        mAdapter?.submitList(listBeacons)
+
+        val listMinor = lastDetectedBookshelf.values.toList().map { it.minor }
+        mAdapter?.submitBookshelf(BookshelfRepository.bookshelfList.filter {
+            !listMinor.contains(it.minor)
+        })
 
         markers.forEach {
             it.value.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.point))
@@ -275,16 +281,16 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener
 
         fun getDistance(rssi: Int): Double {
 
-            return if (rssi >= -65) 1.0
+            return if (rssi >= -63) 1.0
             else if (rssi >= -72) 2.0
             else if (rssi >= -75) 3.0
             else if(rssi >= -79) 4.0
-            else if(rssi >= -84) 5.0
+            else if(rssi >= -83) 5.0
             else if(rssi >= -86) 6.0
             else if (rssi >= -88) 7.0
             else if(rssi >= - 91) 8.0
-            else if(rssi >= -95) 9.0
-            else if(rssi >= -98) 10.0
+            else if(rssi >= -94) 9.0
+            else if(rssi >= -97) 10.0
 
 
             else -1.0

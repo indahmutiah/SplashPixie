@@ -61,7 +61,7 @@ class DetectedBeaconAdapter(private val mContext: Context) : RecyclerView.Adapte
             viewHolder.rssiText.text = beacon.rssi.toString()
             viewHolder.minorText.text = beacon.minor.toString()
             viewHolder.numberText.text = book!!.code
-            val distance = getDistance(-56, beacon!!.rssi)
+            val distance = getDistance(10, beacon!!.rssi)
             viewHolder.distanceText.text = distance.toString()
 
             viewHolder.root.setOnClickListener {
@@ -89,16 +89,16 @@ class DetectedBeaconAdapter(private val mContext: Context) : RecyclerView.Adapte
 
     fun getDistance(txPower: Int, rssi: Int): Double {
 
-        return if (rssi >= -65) 1.0
+        return if (rssi >= -63) 1.0
         else if (rssi >= -72) 2.0
         else if (rssi >= -75) 3.0
         else if(rssi >= -79) 4.0
-        else if(rssi >= -84) 5.0
+        else if(rssi >= -83) 5.0
         else if(rssi >= -86) 6.0
         else if (rssi >= -88) 7.0
         else if(rssi >= - 91) 8.0
-        else if(rssi >= -95) 9.0
-        else if(rssi >= -98) 10.0
+        else if(rssi >= -94) 9.0
+        else if(rssi >= -97) 10.0
 
         else -1.0
     }
